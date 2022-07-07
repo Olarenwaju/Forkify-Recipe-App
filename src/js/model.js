@@ -38,7 +38,7 @@ export  const loadRecipe = async function(id) {
             state.recipe.bookmarked = true
         else state.recipe.bookmarked = false;
 
-        console.log(state.recipe);
+        //console.log(state.recipe);
     } catch (err) {
         //Temp Error Handling
         console.error(`${err} ????`);
@@ -51,7 +51,6 @@ export const loadSearchResults = async function(query) {
     try {
         state.search.query = query;
         const data = await AJAX(`${API_URL}?search=${query}&key=${API_KEY}`);
-        console.log(data);
 
         state.search.results = data.data.recipes.map(rec => {
             return {
@@ -120,7 +119,7 @@ const init = function() {
     if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
-console.log(state.bookmarks);
+//console.log(state.bookmarks);
 
 export const uploadRecipe = async function(newRecipe) {
     try {
